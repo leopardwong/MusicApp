@@ -4,4 +4,15 @@
     <string name="search">搜尋</string>
     <string name="favorites">你的收藏</string>
     <string name="setting">設定</string>
+    <string name="usa">美國</string>
+    <string name="jp">日本</string>
+    <string name="hk">香港</string>
+    <string name="ca">加拿大</string>
+    <string name="cn">中國</string>
+    <string name="searchBar">搜尋歌曲..</string>
+    <string name="filter">篩選： 國家/地區</string>
+    <string name="albums">暢銷專輯</string>
+    <string name="english">英文</string>
+    <string name="traChi">繁體中文</string>
+    <string name="simChi">簡體中文</string>
 </resources>

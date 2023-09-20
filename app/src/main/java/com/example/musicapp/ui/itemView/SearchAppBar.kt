@@ -1,9 +1,9 @@
 package com.example.musicapp.ui.itemView
 
+import android.content.Context
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.AppBarDefaults
@@ -14,7 +14,6 @@ import androidx.compose.material.Surface
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.FileOpen
 import androidx.compose.material.icons.filled.FilterAlt
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
@@ -32,15 +31,16 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import com.example.musicapp.R
 import com.example.musicapp.ui.viewModel.SearchScreenViewModel
 import com.example.musicapp.api.model.Results
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SearchAppBar(
-   viewModel: SearchScreenViewModel,
-   onSearchClicked: (List<Results>) -> Unit,
-   onFilterClicked: ()-> Unit
+   onSearchClicked: (String) -> Unit,
+   onFilterClicked: ()-> Unit,
+   context: Context
 ) {
    var textValue by remember { mutableStateOf("") }
    val keyboardController = LocalSoftwareKeyboardController.current
@@ -61,7 +61,7 @@ fun SearchAppBar(
             Text(
                modifier = Modifier
                   .alpha(ContentAlpha.medium),
-               text = "Search here...",
+               text = context.getString(R.string.searchBar),
                color = Color.White
             )
          },
@@ -76,10 +76,7 @@ fun SearchAppBar(
                   .alpha(ContentAlpha.medium),
                onClick = {
                   keyboardController?.hide()
-                  println("==== $textValue")
-                  viewModel.getiTunesApi(textValue) {
-                     onSearchClicked(it)
-                  }
+                  onSearchClicked(textValue)
                }
             ) {
                Icon(
@@ -91,17 +88,6 @@ fun SearchAppBar(
          },
          trailingIcon = {
             Row {
-//               IconButton(
-//                  onClick = {
-//
-//                  }
-//               ) {
-//                  Icon(
-//                     imageVector = Icons.Default.FileOpen,
-//                     contentDescription = "Close Icon",
-//                     tint = Color.White
-//                  )
-//               }
                IconButton(
                   onClick = {
                      onFilterClicked()
@@ -121,9 +107,7 @@ fun SearchAppBar(
          keyboardActions = KeyboardActions(
             onSearch = {
                keyboardController?.hide()
-               viewModel.getiTunesApi(textValue) {
-                  onSearchClicked(it)
-               }
+               onSearchClicked(textValue)
             }
          ),
          colors = TextFieldDefaults.textFieldColors(

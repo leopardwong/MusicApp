@@ -4,4 +4,15 @@
     <string name="search">Search</string>
     <string name="favorites">Favorites</string>
     <string name="setting">Setting</string>
+    <string name="usa">USA</string>
+    <string name="jp">Japan</string>
+    <string name="hk">Hong Kong</string>
+    <string name="ca">Canada</string>
+    <string name="cn">China</string>
+    <string name="searchBar">Search here..</string>
+    <string name="filter">Filter: Country</string>
+    <string name="albums">Top Albums</string>
+    <string name="english">English</string>
+    <string name="traChi">Traditional Chinese</string>
+    <string name="simChi">Simplified Chinese</string>
 </resources>

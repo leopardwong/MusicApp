@@ -6,9 +6,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,7 +31,6 @@ fun Pager(data:List<Results>,context:Context) {
 
    var favorites by remember { mutableStateOf(emptyList<Results>()) }
 
-   //ToDO
    val fileStorageHelper = FileStorageHelper(context)
    val file = File(context.getCacheDir(), "favorites")
    if(file.exists()){
@@ -52,14 +48,6 @@ fun Pager(data:List<Results>,context:Context) {
          state = pagerState,
          modifier = Modifier
             .fillMaxSize()
-            .background(
-               brush = Brush.linearGradient(
-                  0.0f to Color(0xFF30095C),
-                  500.0f to Color(0xFF0A0A0A),
-                  start = Offset.Zero,
-                  end = Offset.Infinite
-               )
-            )
       ) { currentPage  ->
          Box(
             modifier = Modifier.fillMaxSize()
@@ -80,7 +68,6 @@ fun Pager(data:List<Results>,context:Context) {
                         imageUrl = item.artworkUrl100?.replace("100x100", "200x200")?:"",
                         isFavorite = favorites.contains(item)
                      ){
-                        //ToDO
                         if (favorites.contains(item)) {
                            favorites = favorites - item
                            fileStorageHelper.storeData("favorites",favorites)
@@ -93,33 +80,7 @@ fun Pager(data:List<Results>,context:Context) {
                   }
                }
             }
-//            Column(
-//               modifier = Modifier
-//                  .fillMaxSize()
-//                  .verticalScroll(rememberScrollState())
-//                  .padding(vertical = 8.dp)
-//                  .background(color =  Color.Transparent),
-//               verticalArrangement = Arrangement.spacedBy(8.dp)
-//            ) {
-//               currentPageData.forEach { item ->
-//                  ResultItem(
-//                     song = item.trackName?:"",
-//                     artistName = item.artistName?:"",
-//                     imageUrl = item.artworkUrl100?.replace("100x100", "200x200")?:"",
-//                     isFavorite = favorites.contains(item)
-//                  ){
-//                     //ToDO
-//                     if (favorites.contains(item)) {
-//                        favorites = favorites - item
-//                        fileStorageHelper.storeData("favorites",favorites)
-//                     } else {
-//                        favorites = favorites + item
-//                        fileStorageHelper.storeData("favorites",favorites)
-//
-//                     }
-//                  }
-//               }
-//            }
+
          }
       }
       Box(

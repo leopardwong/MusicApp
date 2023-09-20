@@ -1,12 +1,18 @@
 package com.example.musicapp.ui.itemView
 
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
-val Teal200 = Color(0xFF03DAC5)
-val LightGray = Color(0xffF4F3F3)
 val BottomBarColor = Color(0xFF272b3d)
-val BannerColor = Color(0xFF081cfc)
-val GreenTextColor = Color(0xFF01a758)
+val BannerColor = Color(0xFF272b3d)
+val TitleColor = Color(0xFF1D2030)
+
+
+
+val backgroundColor = Brush.linearGradient(
+   0.0f to Color(0xFF9889A2),
+   500.0f to Color(0xFF5E5B5B),
+   start = Offset.Zero,
+   end = Offset.Infinite
+)

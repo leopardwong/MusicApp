@@ -8,7 +8,9 @@ interface iTunesApi {
    @GET("search")
    suspend fun searchMusic(
       @Query("term") term: String,
-      @Query("media") mediaType: String,
-      //@Query("attribute") entity: String,
+      @Query("media") mediaType: String?,
+      @Query("entity") entity: String?,
+      @Query("limit") limit: Int?,
+      @Query("country") country: String?,
    ): ApiResponse
 }

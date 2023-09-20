@@ -9,7 +9,6 @@ import androidx.navigation.navigation
 import com.example.musicapp.ui.screen.FavoritesScreen
 import com.example.musicapp.ui.screen.HomeScreen
 import com.example.musicapp.ui.screen.SearchScreen
-import com.example.musicapp.ui.screen.SettingScreen
 import com.example.musicapp.ui.viewModel.MainViewModel
 
 @Composable
@@ -24,7 +23,6 @@ fun NavigationGraph(navController: NavHostController,viewModel: MainViewModel,co
                "home" -> composable(it.screenRoute) { HomeScreen(context) }
                "search" -> composable(it.screenRoute) { SearchScreen(context) }
                "favorites" -> composable(it.screenRoute) { FavoritesScreen(context) }
-               "setting" -> composable(it.screenRoute) { SettingScreen(context) }
             }
          }
       }

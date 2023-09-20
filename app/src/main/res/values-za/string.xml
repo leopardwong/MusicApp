@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home">首页</string>
+    <string name="search">搜寻</string>
+    <string name="favorites">你的收藏</string>
+    <string name="setting">设定</string>
+    <string name="usa">美国</string>
+    <string name="jp">日本</string>
+    <string name="hk">香港</string>
+    <string name="ca">加拿大</string>
+    <string name="cn">中国</string>
+    <string name="searchBar">搜寻歌曲..</string>
+    <string name="filter">筛选： 国家/地区</string>
+    <string name="albums">畅销专辑</string>
+    <string name="english">英文</string>
+    <string name="traChi">繁体中文</string>
+    <string name="simChi">简体中文</string>
+</resources>
