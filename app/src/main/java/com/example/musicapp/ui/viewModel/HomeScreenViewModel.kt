@@ -24,6 +24,12 @@ class HomeScreenViewModel(context: Context):ViewModel() {
                it.isSuccess?.let {
                   response(it.results)
                }
+               it.isOtherError?.let{
+                  println("isOtherError: ${it.message}")
+               }
+               it.isBizError?.let{
+                  println("isBizError: ${it.message}")
+               }
             }
       }
    }
